@@ -17,19 +17,21 @@
 ## 1. Introduction
 
 ### 1.1 Purpose
-The purpose of this document is to outline the disaster recovery (DR) and business continuity (BC) plan for the Azure RTF AKS infrastructure, ensuring minimal downtime and data loss in the event of a disaster.
+The purpose of this document is to outline the disaster recovery (DR) and business continuity (BC) plan for the CloudHub 1.0 infrastructure, ensuring minimal downtime and data loss in the event of a disaster.
 
 ### 1.2 Scope
-This plan covers the AKS environment, including applications and data hosted on the AKS clusters.
+This plan covers the CloudHub 1.0 environment, including applications and data.
 
 ## 2. Risk Assessment
 
 Identify potential risks and their impact on the AKS environment, including but not limited to:
 
 - Natural disasters
-- Infrastructure failures
+- Infrastructure failures 
 - Data breaches
 - Service outages
+
+Solution: in this document, only Infrastructure failures
 
 ## 3. Backup and Restore Strategy
 
@@ -51,13 +53,19 @@ Design applications to be resilient to failures by deploying multiple instances 
 
 Implement monitoring solutions for AKS clusters using Azure Monitor. Set up alerts for key metrics related to resource usage, performance, and availability.
 
+Solution: We can implement one or more Alert in Runtime Manager in order to alert in case of application down or any other failure.
+
 ## 6. Incident Response
 
 Define incident response procedures for different types of disasters. Include steps for identifying, escalating, and resolving incidents.
 
+Solution: We can automate the start backup application/scheduler that recover datas or restore datas, or we have a script to launch on the server that hosts the sftp service
+
 ## 7. Communication Plan
 
 Establish a communication plan for notifying stakeholders in the event of a disaster. Include contact information for key personnel and communication channels.
+
+Solution: With the Alert, based on the Alert Type (application down, file not deleted).
 
 ## 8. Testing
 
